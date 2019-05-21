@@ -3,15 +3,15 @@ package model;
 public class Game {
 
 	private String level;
-	public final static String EASY_LEVEL = "EASY";
-	public final static String MEDIUM_LEVEL = "MEDIUM";
-	public final static String HARD_LEVEL = "HARD";
+	public final static String EASY_LEVEL = "Easy";
+	public final static String MEDIUM_LEVEL = "Medium";
+	public final static String HARD_LEVEL = "Hard";
 	
 	private Player players;
 	private Brick first;
 
 	public Game(String level) {
-
+		this.level = level;
 	}
 
 	public String getLevel() {
@@ -38,7 +38,7 @@ public class Game {
 		this.first = first;
 	}
 
-	public int generateBricks() {
+	public int bricksQuantity() {
 		int quantity = 0;
 		if(level.equalsIgnoreCase(EASY_LEVEL)) {
 			quantity = 5+(int) (Math.random()*6);

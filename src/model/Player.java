@@ -8,6 +8,7 @@ public class Player {
 	
 	private Player right;
 	private Player left;
+	private Player parent;
 
 	public Player(String nick, double score, String level) {
 		nickname = nick;
@@ -54,7 +55,13 @@ public class Player {
 	public void setLeft(Player left) {
 		this.left = left;
 	}
-	
-	
+
+	public Player getParent() {
+		return parent;
+	}
+
+	public void setParent(Player parent) {
+		this.parent = parent;
+	}
 
 }

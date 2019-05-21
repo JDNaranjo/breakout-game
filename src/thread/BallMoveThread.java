@@ -1,24 +1,27 @@
 package thread;
 
-import model.Brick;
-import ui.BrickBreakerController;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
+import ui.GameController;
 
 public class BallMoveThread extends Thread{
 
-	private Brick first;
-	private BrickBreakerController bbc;
+	private GameController gc;
 	
-	public BallMoveThread(Brick first, BrickBreakerController bbc) {
-		this.first = first;
-		this.bbc = bbc;
+	public BallMoveThread(GameController gc) {
+		this.gc = gc;
 	}
 	
 	@Override
 	public void run() {
-		Brick current = first;
-		while(current.getNext()!=null) {
-			
-		}
+		Timeline hilo=new Timeline(new KeyFrame(Duration.ZERO, e-> {
+			gc.moveBall();
+		}),new KeyFrame(Duration.millis(10)));
+		
+		hilo.setCycleCount(Animation.INDEFINITE);
+		hilo.play();
 	}
 	
 }
