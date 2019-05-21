@@ -13,13 +13,10 @@ public class GameController {
     private Circle ball;
 
 	public void move(int key) {
-		switch (key) {  
-        case 4: 
+		if(key==4) {
             ship.setLayoutX(ship.getLayoutX()-10);
-            break; 
-        case 6: 
-        	ship.setLayoutX(ship.getLayoutX()+10);
-            break;  
+		}else if(key==6) { 
+        	ship.setLayoutX(ship.getLayoutX()+10); 
     	}		
 	}
 

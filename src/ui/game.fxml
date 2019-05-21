@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Circle?>
 
 
-<BorderPane prefHeight="458.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="458.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.GameController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>

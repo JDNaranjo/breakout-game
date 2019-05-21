@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -84,17 +85,13 @@ public class BrickBreakerController {
     		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
     			@Override
     			public void handle(KeyEvent e) {
-    				switch (e.getCode()) {  
-    		        case A: 
-    		            gc.getShip().setLayoutX(gc.getShip().getLayoutX()-10);
-    		            break; 
-    		        case D: 
-    		        	gc.getShip().setLayoutX(gc.getShip().getLayoutX()-10);
-    		            break; 
-    				default:
-    					System.out.println("Movimientos Validos para Derecha e Izquierda");
-    					break; 
-    		    	}
+    				if(e.getCode().equals(KeyCode.A)) {
+    					gc.move(4);
+    				}else if(e.getCode().equals(KeyCode.D)) {
+    					gc.move(6);
+    				}else {
+    					System.out.println("Solo de admiten Moviemientos hacia la Izquierda y Derecha");
+    				}
     					
     			}
     		});
