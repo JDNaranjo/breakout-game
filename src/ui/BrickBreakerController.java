@@ -3,6 +3,7 @@ package ui;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import exceptions.WrongKeyException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -65,7 +66,7 @@ public class BrickBreakerController {
     }
 	
     @FXML
-    void continueNewGame(ActionEvent event) throws IOException {
+    void continueNewGame(ActionEvent event) throws IOException, WrongKeyException{
 
     	labelTxt.setVisible(true);
     	EventHandler<ActionEvent> event1 = new EventHandler<ActionEvent>() { 
@@ -99,7 +100,7 @@ public class BrickBreakerController {
     					BallMoveThread bmt = new BallMoveThread(gc);
     					bmt.start();
     				}else {
-    					System.out.println("Solo de admiten Moviemientos hacia la Izquierda y Derecha");
+						throw new WrongKeyException(e.getCode());
     				}
     			}
     		});
@@ -137,6 +138,7 @@ public class BrickBreakerController {
             	brickShape.setLayoutY(newBrick.getPosY());
             	gc.addBrick(brickShape);
             	gc.setBricksArray(bricks);
+            	gc.setGame(game);
     		}
     		
     		stage.setTitle("BrickBreaker");
@@ -154,8 +156,16 @@ public class BrickBreakerController {
     }
 
     @FXML
-    void showRanking(ActionEvent event) {
-    	
+    void showRanking(ActionEvent event) throws IOException {
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("HoF.fxml"));
+		Parent root = loader.load();
+		HallOfFameController hofc = loader.getController();
+		hofc.setGame(this.game);
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setTitle("BrickBreaker");
+		stage.setScene(scene);
+		stage.show();
     }
     
 }

@@ -4,16 +4,14 @@ public class Player {
 
 	private String nickname;
 	private double score;
-	private String level;
 	
 	private Player right;
 	private Player left;
 	private Player parent;
 
-	public Player(String nick, double score, String level) {
+	public Player(String nick, double score) {
 		nickname = nick;
 		this.score = score;
-		this.level = level;
 	}
 
 	public String getNickname() {
@@ -31,15 +29,7 @@ public class Player {
 	public void setScore(double score) {
 		this.score = score;
 	}
-
-	public String getLevel() {
-		return level;
-	}
-
-	public void setLevel(String level) {
-		this.level = level;
-	}
-
+	
 	public Player getRight() {
 		return right;
 	}
@@ -62,6 +52,12 @@ public class Player {
 
 	public void setParent(Player parent) {
 		this.parent = parent;
+	}
+	
+	@Override
+	public String toString() {
+		return "Nickname: "+nickname+" Score: "+score;
+	
 	}
 
 }

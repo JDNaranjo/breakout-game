@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.HallOfFameController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="133.0" fitWidth="339.0" layoutX="131.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../data/ranking-title.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="29.0" layoutY="119.0" text="Position" textFill="WHITE" />
+            <Label layoutX="131.0" layoutY="119.0" text="Nickname" textFill="WHITE" />
+            <Label layoutX="285.0" layoutY="119.0" text="Score" textFill="WHITE" />
+            <ImageView fitHeight="242.0" fitWidth="267.0" layoutX="319.0" layoutY="119.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../data/Rankingillo.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="nameLabel" layoutX="133.0" layoutY="148.0" text="xxxxxxxxxx" />
+            <Label fx:id="scoreLabel" layoutX="287.0" layoutY="148.0" text="#####" />
+            <Label fx:id="position" layoutX="37.0" layoutY="148.0" text="1." />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

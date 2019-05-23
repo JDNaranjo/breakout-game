@@ -14,6 +14,7 @@ public class MusicThread extends Thread{
 	@Override
 	public void run() {
 		
+		try {
 		String path = "data/music.mp3";
 		Media media = new Media(new File(path).toURI().toString());
 		MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -47,7 +48,9 @@ public class MusicThread extends Thread{
 			e.printStackTrace();
 		}
 		mediaPlayer.setVolume(1.0);
-		
+		}catch(NullPointerException e){
+			System.out.println("Ventana Cerrada");
+		}
 	}
 	
 }

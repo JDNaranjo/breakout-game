@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Game {
 
 	private String level;
@@ -64,5 +67,55 @@ public class Game {
 		
 		return y;
 	}
+	
+	public void addPlayer(String nickname, double score){
+		  Player player = new Player(nickname, score);
+
+		  if(players==null){
+			players = player;
+		  }else{
+		     Player current = players;
+		     boolean added = false;
+		      
+		     while(!added){
+		           if(players.getScore()<player.getScore()){
+		               if(current.getRight() == null){
+		                  current.setRight(player);
+		                  added = true;
+		               }else{
+		 	          current = current.getRight();
+		              }
+		           }else{
+				if(current.getLeft() == null){
+		                  current.setLeft(player);
+		                  added = true;
+		               }else{
+		 	          current = current.getLeft();
+		               }
+			   } 
+		      }
+		  }
+		}
+	
+	public List<Player> inOrder(){
+		System.out.println(players+" TM_-JDNT- ");
+        return inOrder(players); 
+    }
+	
+	private List<Player> inOrder(Player current){
+        List<Player> lis= new ArrayList<>();
+        if(current != null) {
+            List<Player> lis2 = inOrder(current.getLeft());
+            List<Player> lis3 = inOrder(current.getRight());
+            if(lis2!=null) {
+            	lis.addAll(lis2);
+            }
+            lis.add(current);
+            if(lis2!=null) {
+            	lis.addAll(lis3);
+            }
+        }
+        return lis;
+    }
 
 }

@@ -20,7 +20,8 @@ public class Main extends Application{
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.setTitle("Brick Breaker");
-		//stage.getIcons().add(new Image("breakout.png"));
+		stage.getIcons().add(new Image("File:data/breakout.png"));
+		stage.setResizable(false);
 		stage.show();
 	}
 
